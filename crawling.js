@@ -6,13 +6,24 @@ const puppeteer = require('puppeteer');
         output: process.stdout
     });
 
-    startCrawling("TIMS 아이디", "TIMS 비밀번호");
+    var timsID = ""; // 여기에 아이디를 입력하세요
+    var timsPassword = ""; // 여기에 패스워드를 입력하세요
+    var company = 0; // 여기에 소속값에 해당하는 숫자로 변경하세요. (0-Soft, 1-Data, 2-A&C)
+
+    startCrawling(timsID, timsPassword, company);
 })()
 
 
-async function startCrawling(id, password, attendHour, attendMinute) {
-    // console.log("Start Crawling with ID : " + id + ", PASSWORD : " + password);
-    console.log("근무 현황을 집계중입니다. 잠시만 기다려주세요....");
+async function startCrawling(id, password, company, attendHour, attendMinute) {
+    if(id == "" || password == ""){
+        console.log("아이디 혹은 패스워드는 공백일 수 없습니다.")
+        return;
+    }
+    if( company != 0 || company != 1 || company != 2){
+        console.log("소속값이 이상합니다. 확인 후 다시 프로세스를 실행시켜주세요.")
+        return;
+    }
+    console.log(id+"님의 근무 현황을 집계중입니다. 잠시만 기다려주세요....");
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -23,11 +34,21 @@ async function startCrawling(id, password, attendHour, attendMinute) {
     await page.goto('https://tims.tmax.co.kr/login.html');
 
     //아이디랑 비밀번호 란에 값을 넣어라
-    await page.evaluate((id, pw) => {
-    	document.querySelector('input[value="TO"]').click();
+    await page.evaluate((id, pw, com) => {
         document.querySelector('input[id="userId"]').value = id;
         document.querySelector('input[id="passwd"]').value = pw;
-    }, tims_id, tims_pw);
+        switch (com){
+            case 0 :
+    	        document.querySelector('input[value="TS"]').click();
+                break;
+            case 1 :
+                document.querySelector('input[value="TD"]').click();
+                break;
+            case 2 :
+                document.querySelector('input[value="TO"]').click();
+                break;
+        }
+    }, tims_id, tims_pw, company);
 
     //로그인 버튼을 클릭해라
     await Promise.all([
@@ -187,7 +208,7 @@ async function startCrawling(id, password, attendHour, attendMinute) {
     if(remainTime >0){
         console.log("남은 근무시간은 **" + parseInt(remainTime/60) + "시간 " + remainTime%60 + "분** 입니다." )
     } else {
-        console.log("축하합니다! 이번 주 근무 40시간을 모두 달성했습니다.")
+        console.log(id+"님, 축하합니다! 이번 주 근무 40시간을 모두 달성했습니다.")
         console.log("초과한 근무시간은 " + parseInt(-remainTime/60) + "시간 " + -remainTime%60 + "분 입니다." )
     }
     console.log("")
