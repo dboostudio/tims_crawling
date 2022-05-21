@@ -1,0 +1,15 @@
+{
+  "name": "js_tims",
+  "version": "1.0.0",
+  "description": "",
+  "main": "crawling.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dboo",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^19.0.0",
+    "puppeteer": "^13.7.0"
+  }
+}
