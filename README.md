@@ -1,4 +1,4 @@
-# 이번주는 얼마나 더 일해야하나? 사용법
+## TIMS 근태 크롤러 사용법
 
 1. root 폴더에서 `npm install` 실행 (node 설치 필수)
 2. crawling.js 에 ID, PASSWORD에 본인 TIMS 아이디, 비밀번호를 기재합니다.
