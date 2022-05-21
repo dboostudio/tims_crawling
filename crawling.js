@@ -19,7 +19,7 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
         console.log("아이디 혹은 패스워드는 공백일 수 없습니다.")
         return;
     }
-    if( company != 0 || company != 1 || company != 2){
+    if( company != 0 && company != 1 && company != 2){
         console.log("소속값이 이상합니다. 확인 후 다시 프로세스를 실행시켜주세요.")
         return;
     }
