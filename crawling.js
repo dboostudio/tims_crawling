@@ -1,11 +1,6 @@
 const puppeteer = require('puppeteer');
 
 (async () => {
-    const reader = require('readline').createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-
     var timsID = ""; // 여기에 아이디를 입력하세요
     var timsPassword = ""; // 여기에 패스워드를 입력하세요
     var company = 0; // 여기에 소속값에 해당하는 숫자로 변경하세요. (0-Soft, 1-Data, 2-A&C)
@@ -186,7 +181,7 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     }
     count++;
 
-    console.log("----------------------현재 근무 현황----------------------")
+    console.log("\n----------------------현재 근무 현황----------------------\n")
     console.log(commute);
 
     let workTime = 0;
@@ -203,18 +198,37 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     let remainTime = 40*60 - workTime; // 40시간 * 60분 - 근무시간(분)
 
     console.log("현재 " + parseInt(workTime/60) + "시간 " + workTime%60 + "분 근무했습니다." )
-    console.log("")
-    console.log("----------------------잔여 근무 현황----------------------")
+    console.log("\n----------------------잔여 근무 현황----------------------\n")
     if(remainTime >0){
         console.log("남은 근무시간은 **" + parseInt(remainTime/60) + "시간 " + remainTime%60 + "분** 입니다." )
     } else {
-        console.log(id+"님, 축하합니다! 이번 주 근무 40시간을 모두 달성했습니다.")
+        console.log("축하합니다! 이번 주 근무 40시간을 모두 달성했습니다.")
         console.log("초과한 근무시간은 " + parseInt(-remainTime/60) + "시간 " + -remainTime%60 + "분 입니다." )
     }
-    console.log("")
-    console.log("-------------------------------------------------------")
-    console.log("근무시간 계산이 완료되었습니다.");
-    console.log("Ctrl + C 를 입력해 프로세스를 종료하세요.");
+
+    console.log("\n-------------------------------------------------------\n")
+    console.log("근무시간 계산이 완료되었습니다. Ctrl + C 를 입력해 프로세스를 종료하세요.");
+
+    // 금요일이라면 출근시간 입력받고, 예상 퇴근시간 계산해서 알려주기
+    // const reader = require('readline').createInterface({
+    //     input: process.stdin,
+    //     output: process.stdout
+    // });
+    //
+    // if(new Date().getDay() == 5){
+    //
+    //     console.log("금요일입니다! 출근시간을 입력하시겠습니까? 입력을 건너뛰시리면 n을 누르세요.")
+    //     rl.on("line", function (x) {
+    //         if(x == "N" || x == "n"){
+    //             rl.close();
+    //         }
+    //         switch (count){
+    //             case 1 :
+    //
+    //         }
+    //         count += 1;
+    //     })
+    // }
 
 
     await browser.close();

@@ -4,7 +4,8 @@
 2. crawling.js 에 ID, PASSWORD에 본인 TIMS 아이디, 비밀번호를 기재합니다.
    - TODO : 추후 소속 입력 추가
    - TODO : 금요일이라면, 출근시간 입력받고 예상 퇴근시간 출력기능 추가
-3. `node crawling.js` 실행
+3. COMPANY 변수에 해당하는 소속사의 숫자를 입력하고 저장합니다.
+4. `node crawling.js` 실행
 
 -- 실행 화면 --
 
