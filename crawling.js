@@ -85,10 +85,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const leave1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
         return element.innerHTML;
     });
+    const attendType1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
     let todayInfo = {
         "요일": week[day-count],
         "출근": attend1,
-        "퇴근": leave1
+        "퇴근": leave1,
+        "근태구분" : attendType1
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -102,10 +106,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const leave2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
         return element.innerHTML;
     });
+    const attendType2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
         "요일": week[day-count],
         "출근": attend2,
-        "퇴근": leave2
+        "퇴근": leave2,
+        "근태구분" : attendType2
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -119,10 +127,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const leave3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
         return element.innerHTML;
     });
+    const attendType3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
         "요일": week[day-count],
         "출근": attend3,
-        "퇴근": leave3
+        "퇴근": leave3,
+        "근태구분" : attendType3
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -136,10 +148,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const leave4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
         return element.innerHTML;
     });
+    const attendType4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
         "요일": week[day-count],
         "출근": attend4,
-        "퇴근": leave4
+        "퇴근": leave4,
+        "근태구분" : attendType4
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -153,10 +169,35 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const leave5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
         return element.innerHTML;
     });
+    const attendType5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
         "요일": week[day-count],
         "출근": attend5,
-        "퇴근": leave5
+        "퇴근": leave5,
+        "근태구분" : attendType5
+    };
+    if(day-count > 0){
+        commute.unshift(todayInfo);
+    }
+    count++;
+
+    // DAY-6
+    const attend6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+        return element.innerHTML;
+    });
+    const leave6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+        return element.innerHTML;
+    });
+    const attendType6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
+    todayInfo = {
+        "요일": week[day-count],
+        "출근": attend6,
+        "퇴근": leave6,
+        "근태구분" : attendType6
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -171,10 +212,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const leave7 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
         return element.innerHTML;
     });
+    const attendType7 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
         "요일": week[day-count],
         "출근": attend7,
-        "퇴근": leave7
+        "퇴근": leave7,
+        "근태구분" : attendType7
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -193,6 +238,11 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
 
         var todayWork = (parseInt(leavHour) - parseInt(attendHour)) * 60 + parseInt(leaveMin) - parseInt(attendMin);
         workTime = workTime + todayWork;
+
+        // 오전 반차가 아니라면, 점심시간을 제외한다.
+        if(work['근태구분'] != "반차(오전)"){
+            workTime = workTime - 60;
+        }
     });
 
     let remainTime = 40*60 - workTime; // 40시간 * 60분 - 근무시간(분)
@@ -200,7 +250,7 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     console.log("현재 " + parseInt(workTime/60) + "시간 " + workTime%60 + "분 근무했습니다." )
     console.log("\n----------------------잔여 근무 현황----------------------\n")
     if(remainTime >0){
-        console.log("남은 근무시간은 **" + parseInt(remainTime/60) + "시간 " + remainTime%60 + "분** 입니다." )
+        console.log("남은 근무시간은 **" + parseInt(remainTime/60) + "시간 " + remainTime%60 + "분** 입니다. (점심시간 미포함)" )
     } else {
         console.log("축하합니다! 이번 주 근무 40시간을 모두 달성했습니다.")
         console.log("초과한 근무시간은 " + parseInt(-remainTime/60) + "시간 " + -remainTime%60 + "분 입니다." )
