@@ -9,3 +9,6 @@
 -- 실행 화면 --
 
 <img width="430" alt="image" src="https://user-images.githubusercontent.com/60918109/169638427-97b097e2-d411-4123-97fa-e0bb5f407e20.png">
+
+## Update Note
+22.05.31 - 반차, 연차시 근무시간 각각 4, 8시간 제외하는 로직 추가
