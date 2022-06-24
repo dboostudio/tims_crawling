@@ -88,11 +88,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const attendType1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
         return element.innerHTML;
     });
+    const dayOfTheWeek1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+        return element.innerHTML;
+    });
     let todayInfo = {
-        "요일": week[day-count],
+        "요일": dayOfTheWeek1,
         "출근": attend1,
         "퇴근": leave1,
-        "근태구분" : attendType1
+        "근태구분" : attendType1,
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -109,11 +112,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const attendType2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
         return element.innerHTML;
     });
+    const dayOfTheWeek2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
-        "요일": week[day-count],
+        "요일": dayOfTheWeek2,
         "출근": attend2,
         "퇴근": leave2,
-        "근태구분" : attendType2
+        "근태구분" : attendType2,
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -130,11 +136,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const attendType3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
         return element.innerHTML;
     });
+    const dayOfTheWeek3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
-        "요일": week[day-count],
+        "요일": dayOfTheWeek3,
         "출근": attend3,
         "퇴근": leave3,
-        "근태구분" : attendType3
+        "근태구분" : attendType3,
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -151,11 +160,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const attendType4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
         return element.innerHTML;
     });
+    const dayOfTheWeek4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
-        "요일": week[day-count],
+        "요일": dayOfTheWeek4,
         "출근": attend4,
         "퇴근": leave4,
-        "근태구분" : attendType4
+        "근태구분" : attendType4,
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -172,11 +184,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const attendType5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
         return element.innerHTML;
     });
+    const dayOfTheWeek5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
-        "요일": week[day-count],
+        "요일": dayOfTheWeek5,
         "출근": attend5,
         "퇴근": leave5,
-        "근태구분" : attendType5
+        "근태구분" : attendType5,
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -193,11 +208,14 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     const attendType6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
         return element.innerHTML;
     });
+    const dayOfTheWeek6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+        return element.innerHTML;
+    });
     todayInfo = {
-        "요일": week[day-count],
+        "요일": dayOfTheWeek6,
         "출근": attend6,
         "퇴근": leave6,
-        "근태구분" : attendType6
+        "근태구분" : attendType6,
     };
     if(day-count > 0){
         commute.unshift(todayInfo);
@@ -205,10 +223,10 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     count++;
 
     console.log("\n----------------------현재 근무 현황----------------------\n")
-    console.log(commute);
 
     let workTime = 0;
     let remainTime = 40*60;
+    let desc = "";
     commute.forEach(function (work) {
         let attendHour = work['출근'].split(":")[0];
         let attendMin = work['출근'].split(":")[1];
@@ -233,8 +251,11 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
         } else { // 휴가가 아니라면 근무시간을 추가한다.
             workTime = workTime + todayWork;
         }
+        work["워크"] = parseInt(todayWork/60) + "시간 " + todayWork%60 + "분";
 
+        desc +=  work["요일"] + " || 출근: " + work["출근"] + ", 퇴근: " + work["퇴근"] + ", 워크타임: " + work["워크"] + ", " + work['근태구분'] + "\n";
     });
+    console.log(desc);
 
     remainTime = remainTime - workTime; // 40시간 * 60분 - 근무시간(분)
 
@@ -249,28 +270,6 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
 
     console.log("\n-------------------------------------------------------\n")
     console.log("근무시간 계산이 완료되었습니다. Ctrl + C 를 입력해 프로세스를 종료하세요.");
-
-    // 금요일이라면 출근시간 입력받고, 예상 퇴근시간 계산해서 알려주기
-    // const reader = require('readline').createInterface({
-    //     input: process.stdin,
-    //     output: process.stdout
-    // });
-    //
-    // if(new Date().getDay() == 5){
-    //
-    //     console.log("금요일입니다! 출근시간을 입력하시겠습니까? 입력을 건너뛰시리면 n을 누르세요.")
-    //     rl.on("line", function (x) {
-    //         if(x == "N" || x == "n"){
-    //             rl.close();
-    //         }
-    //         switch (count){
-    //             case 1 :
-    //
-    //         }
-    //         count += 1;
-    //     })
-    // }
-
 
     await browser.close();
 };
