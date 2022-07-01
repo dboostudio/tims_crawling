@@ -237,7 +237,7 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
 
         // 오전 반차가 아니라면, 점심시간을 제외한다.
         if(work['근태구분'] != "반차(오전)"){
-            workTime = workTime - 60;
+            todayWork = todayWork - 60;
         }
 
         // 반차라면 4시간 제외
