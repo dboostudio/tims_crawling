@@ -245,15 +245,15 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
             remainTime = remainTime - 4*60;
         }
 
+        work["워크"] = parseInt(todayWork/60) + "시간 " + todayWork%60 + "분";
         // 휴가라면 8시간 제외 (월차휴가, 연차휴가 등)
         if(work['근태구분'].includes("휴가")){
             remainTime = remainTime - 8*60;
+            desc +=  work["요일"] + " || 출근: " + "N/A  " + ", 퇴근: " + "N/A  " + ", 워크타임: " + "N/A       " + ", " + work['근태구분'] + "\n";
         } else { // 휴가가 아니라면 근무시간을 추가한다.
             workTime = workTime + todayWork;
+            desc +=  work["요일"] + " || 출근: " + work["출근"] + ", 퇴근: " + work["퇴근"] + ", 워크타임: " + work["워크"] + ", " + work['근태구분'] + "\n";
         }
-        work["워크"] = parseInt(todayWork/60) + "시간 " + todayWork%60 + "분";
-
-        desc +=  work["요일"] + " || 출근: " + work["출근"] + ", 퇴근: " + work["퇴근"] + ", 워크타임: " + work["워크"] + ", " + work['근태구분'] + "\n";
     });
     console.log(desc);
 
