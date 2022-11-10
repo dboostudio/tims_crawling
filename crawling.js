@@ -79,16 +79,16 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     let count =1;
 
     // DAY-1
-    const attend1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+    const attend1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(10)', element => {
         return element.innerHTML;
     });
-    const leave1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+    const leave1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(13)', element => {
         return element.innerHTML;
     });
-    const attendType1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+    const attendType1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(16)', element => {
         return element.innerHTML;
     });
-    const dayOfTheWeek1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+    const dayOfTheWeek1 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
         return element.innerHTML;
     });
     let todayInfo = {
@@ -103,16 +103,16 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     count++;
 
     // DAY-2
-    const attend2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+    const attend2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(10)', element => {
         return element.innerHTML;
     });
-    const leave2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+    const leave2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(13)', element => {
         return element.innerHTML;
     });
-    const attendType2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+    const attendType2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(16)', element => {
         return element.innerHTML;
     });
-    const dayOfTheWeek2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+    const dayOfTheWeek2 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
         return element.innerHTML;
     });
     todayInfo = {
@@ -127,16 +127,16 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     count++;
 
     // DAY-3
-    const attend3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+    const attend3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(10)', element => {
         return element.innerHTML;
     });
-    const leave3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+    const leave3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(13)', element => {
         return element.innerHTML;
     });
-    const attendType3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+    const attendType3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(16)', element => {
         return element.innerHTML;
     });
-    const dayOfTheWeek3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+    const dayOfTheWeek3 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
         return element.innerHTML;
     });
     todayInfo = {
@@ -151,16 +151,16 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     count++;
 
     // DAY-4
-    const attend4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+    const attend4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(10)', element => {
         return element.innerHTML;
     });
-    const leave4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+    const leave4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(13)', element => {
         return element.innerHTML;
     });
-    const attendType4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+    const attendType4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(16)', element => {
         return element.innerHTML;
     });
-    const dayOfTheWeek4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+    const dayOfTheWeek4 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
         return element.innerHTML;
     });
     todayInfo = {
@@ -175,16 +175,16 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     count++;
 
     // DAY-5
-    const attend5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+    const attend5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(10)', element => {
         return element.innerHTML;
     });
-    const leave5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+    const leave5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(13)', element => {
         return element.innerHTML;
     });
-    const attendType5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+    const attendType5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(16)', element => {
         return element.innerHTML;
     });
-    const dayOfTheWeek5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+    const dayOfTheWeek5 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
         return element.innerHTML;
     });
     todayInfo = {
@@ -199,16 +199,16 @@ async function startCrawling(id, password, company, attendHour, attendMinute) {
     count++;
 
     // DAY-6
-    const attend6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
+    const attend6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(10)', element => {
         return element.innerHTML;
     });
-    const leave6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(12)', element => {
+    const leave6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(13)', element => {
         return element.innerHTML;
     });
-    const attendType6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(15)', element => {
+    const attendType6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(16)', element => {
         return element.innerHTML;
     });
-    const dayOfTheWeek6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(8)', element => {
+    const dayOfTheWeek6 = await bodyFrame.$eval('table[id="listTable"] > tbody > tr:nth-last-child('+count+') > td:nth-child(9)', element => {
         return element.innerHTML;
     });
     todayInfo = {
