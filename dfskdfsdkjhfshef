@@ -1,0 +1,158 @@
+[33mcommit 5a4c9a78790833f113d0096570ae852b489d2c88[m[33m ([m[1;36mHEAD -> [m[1;32mfeat/front[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 52ac990 c5a18cc
+Author: null2p <68416208+null2p@users.noreply.github.com>
+Date:   Wed Dec 28 17:21:35 2022 +0900
+
+    Merge pull request #2 from null2p/master
+    
+    [feat] 자바 버전 추가
+
+[33mcommit c5a18cc8f741a874059b630c794f0c40aef0eea1[m
+Author: null2p <pnr9255@gmail.com>
+Date:   Wed Dec 28 17:20:54 2022 +0900
+
+    [feat] 자바 버전 추가
+    - 전문연 총 지각시간 기능 추가
+
+[33mcommit 52ac9904761b2e6a4c1a8bc44e44941861b54aa6[m
+Merge: 47fad1d 68ad9c4
+Author: null2p <68416208+null2p@users.noreply.github.com>
+Date:   Wed Dec 28 17:17:43 2022 +0900
+
+    Merge pull request #1 from null2p/master
+    
+    [chore] 기존 파일들 js 폴더로 이동
+
+[33mcommit 68ad9c4b7cdfe7e58b6f157b8a020d8767a249ce[m
+Author: null2p <pnr9255@gmail.com>
+Date:   Wed Dec 28 17:16:22 2022 +0900
+
+    [chore] 기존 파일들 js 폴더로 이동
+
+[33mcommit 47fad1dc18cc6bac5aaa0b5ab1c151fc9a5ac68b[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Thu Nov 10 16:52:58 2022 +0900
+
+    tims에 연구원 Y/N 컬럼이 추가되면서 한줄씩 밀림
+
+[33mcommit 33c7fa6644b95c6ea4f7f160d6240770229cc8b8[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri Jul 8 17:02:01 2022 +0900
+
+    휴가시 콘솔 내용 정리(2)
+
+[33mcommit 946f2cd476d9ed72671ec78eec332d1e43d2b055[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri Jul 8 15:12:14 2022 +0900
+
+    update Readme.md
+
+[33mcommit 670346255ba250d823bfb59a256be964d7db0b92[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri Jul 1 15:40:00 2022 +0900
+
+    점심시간을 todayWork에 반영하도록 변경
+
+[33mcommit 94a794446d9ee41f6e5a8f1c7985f765bc880f85[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri Jun 24 17:25:14 2022 +0900
+
+    console 출력 스타일 변경
+
+[33mcommit ad9f446895270d2d0a603b1f6562bdee1ad6e9e2[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Tue May 31 15:58:53 2022 +0900
+
+    update README.md
+
+[33mcommit 1c6e7ebabede3775f51027ef7e30520f0f113479[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Tue May 31 13:16:14 2022 +0900
+
+    반차, 연차시 근무시간 제외로직 추가
+
+[33mcommit 29ade8fd0ac3f38365b136273106358742acab0a[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Tue May 31 13:14:25 2022 +0900
+
+    반차, 연차시 근무시간 제외로직 추가
+
+[33mcommit cadd2355d64a3aefd4158c312a417a30a71a2b2a[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri May 27 17:58:58 2022 +0900
+
+    근태구분 추가 크롤링하고, 오전반차가 아니라면 근무시간에서 점심시간을 제외한다.
+
+[33mcommit 48135fd65d324b9a94bfc2e98e35051bd2aa68dd[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri May 27 17:50:22 2022 +0900
+
+    update README.md
+
+[33mcommit adf9bf13390f59745b86f3b4c7dcca5e6400850a[m
+Merge: 1e7a3be c2c6693
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri May 27 17:49:33 2022 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 1e7a3be87e77712bc0f61cd2eb8467fd07890f88[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Fri May 27 17:48:54 2022 +0900
+
+    update
+
+[33mcommit c2c6693194107892d61471661d9f6a023c201f60[m
+Author: Daehwan Boo <60918109+dboostudio@users.noreply.github.com>
+Date:   Sat May 21 15:28:50 2022 +0900
+
+    Update README.md
+
+[33mcommit 082c83f9b820910c77ba441c755efe01eb85258b[m
+Author: Daehwan Boo <60918109+dboostudio@users.noreply.github.com>
+Date:   Sat May 21 15:27:05 2022 +0900
+
+    Update README.md
+
+[33mcommit 55566241caa58d4127532ce780dbf64ce22dbaef[m
+Merge: 0948db6 28a8696
+Author: dboo <dboo.studio@gmail.com>
+Date:   Sat May 21 15:25:47 2022 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 28a869689edf26d269243510df41b52bd947191f[m
+Author: Daehwan Boo <60918109+dboostudio@users.noreply.github.com>
+Date:   Sat May 21 15:24:24 2022 +0900
+
+    Update README.md
+
+[33mcommit 0948db6815255bc7ae9260a375080dac3de0d101[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Sat May 21 15:21:39 2022 +0900
+
+    [debug] 입력값 validation 수정
+
+[33mcommit 4801f5f456ce6ad6e9b1721271e28b3d7ac6411d[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Sat May 21 15:18:51 2022 +0900
+
+    [feat] 소속추가, 입력값 validation추가
+
+[33mcommit 154220ea6c08c0d4e2b3729702204cd5c3cf545b[m
+Author: Daehwan Boo <60918109+dboostudio@users.noreply.github.com>
+Date:   Sat May 21 15:09:52 2022 +0900
+
+    Update README.md
+
+[33mcommit 20068006067f2f901a18f49753d797922c511bb5[m
+Author: Daehwan Boo <60918109+dboostudio@users.noreply.github.com>
+Date:   Sat May 21 15:09:40 2022 +0900
+
+    Update README.md
+
+[33mcommit 9c07615e20bf0166d703f38d75fea8521cdcd87e[m
+Author: dboo <dboo.studio@gmail.com>
+Date:   Sat May 21 15:02:29 2022 +0900
+
+    first commit

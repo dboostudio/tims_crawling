@@ -1,0 +1,240 @@
+:root{
+	--body-background-color: #f5f6f7;
+	--font-color: #4e4e4e;
+	--border-gray-color : #dadada;
+	--tmax-blue-color: indigo;
+	--tmax-blue-border-color: indigo;
+}
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:var(--body-background-color);
+}
+
+.main-container{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 21px;
+}
+.main-container .main-wrap{
+	width:768px;
+
+}
+.main-container .main-wrap .sel-lang-wrap .lang-select
+{
+	width: 96px;
+	height: 30px;
+	color: var(--font-color);
+	border: solid 1px var(--border-gray-color);
+}
+.main-container .main-wrap .logo-wrap{
+	padding-top:55px;
+}
+.main-container .main-wrap .logo-wrap img
+{
+	width: 500px;
+	height: 500px;
+    object-fit: cover;
+}
+
+.main-container .main-wrap header .sel-lang-wrap{
+	display:flex;
+	justify-content:flex-end;
+}
+
+.main-container .main-wrap header .logo-wrap{
+	display:flex;	
+	flex-direction: column;
+	align-items: center;
+}
+.login-input-section-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-input-wrap{
+	width: 465px;
+	height :48px;
+	border: solid 1px var(	--border-gray-color );
+	background: white;
+}
+.password-wrap{
+	margin-top: 13px;
+}
+.login-radio-wrap{
+	width: 465px;
+	height :48px;
+	background: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.family-wrap{
+
+	margin-top: 13px;
+}
+.login-input-wrap input{
+	border: none;
+	width:430px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+.login-button-wrap {
+	padding-top: 13px;
+}
+.login-button-wrap button{
+	width: 465px;
+	height :48px;
+	font-size: 18px;
+	background: var(--tmax-blue-color);
+	color: white;
+	border: solid 1px var(--tmax-blue-border-color);
+}
+.login-stay-sign-in{
+	width: 465px;
+	height: 52px;
+	display: flex;
+	font-size: 15px;
+	color: #4e4e4e;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom: solid 1px var(--border-gray-color);
+}
+.login-stay-sign-in i{
+	font-size: 25px;
+	color: #9ba1a3;
+}
+.login-stay-sign-in span{
+	padding-left: 5px;
+	line-height: 25px;
+}
+.fa-qrcode
+{
+	color:var(--tmax-blue-color);
+}
+.fa-line{
+	color:var(--tmax-blue-color);
+}
+footer{
+	padding-top: 95px;
+	padding-bottom: 15px;
+
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:768px;
+}
+.copyright-wrap{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 15px;
+}
+footer .copyright-wrap span img{
+	width: 59px;
+	
+	height: 11px;
+}
+footer .copyright-wrap span{
+	font-size: 13px;
+	line-height: 15px;
+}
+body{
+	margin: 50px 0 !important;
+}
+.progress-title{
+    padding:50px 0px 200px 0px;
+	color:#011627;
+	font-weight: 700;
+}
+.progress{
+    margin:50px 0px 50px 0px;
+	background-color:#fff;
+	height:15px;
+	overflow: visible !important;
+	position: relative;
+	border-radius:20px !important;
+	box-shadow: none;
+}
+.progress .progress-bar{
+	animation: animate-positive 2s;
+	position: relative;
+	box-shadow: none;
+    border-radius:20px !important;
+}
+.progress .progress-bar:before{
+	content:"hi";
+	position: absolute;
+	top: 20px;
+	right: -10px;
+    background-size: 100% 100%;
+    background-color: aqua;
+	height: 20px;
+	width: 20px;
+}
+.progress .progress-bar:after{
+	content:"";
+	position: absolute;
+	top: -200px;
+	right: -100px;
+    background-image: url("runningPerson.png");
+    background-size: 100% 100%;
+	height: 200px;
+	width: 200px;
+}
+.progress .progress-value{
+	position: absolute;
+	padding: 3px 7px;
+	top:-50px;
+	right:-20px;
+	font-size:14px;
+	color:#ffffff;
+	background-color: #000000;
+	display: block;
+}
+.progress .progress-value:after{
+	content: "";
+	position: absolute;
+	bottom:-6px;
+	left: 35%;
+	border-top: 7px solid #000000;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+}
+.military-title{
+    padding:0px 0px 0px 30px;
+	color:#011627;
+	font-weight: 700;
+}
+.military-sub-title{
+    padding:10px 0px 10px 0px;
+	color:#011627;
+	font-weight: 700;
+}
+.military-late-hour{
+    margin-right:15px;
+}
+.military-late-minute{
+    
+}
+.military-late{
+    margin:0 auto;
+}
+@-webkit-keyframes animate-positive {
+	0% { width: 0%; }
+}
+
+@keyframes animate-positive {
+	0% { width: 0%; }
+}

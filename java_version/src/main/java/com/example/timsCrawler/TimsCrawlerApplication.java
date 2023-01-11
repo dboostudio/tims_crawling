@@ -1,6 +1,7 @@
 package com.example.timsCrawler;
 
 import com.example.timsCrawler.service.TimsCrawlerService;
+import jakarta.servlet.ServletOutputStream;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
