@@ -3,11 +3,12 @@ package com.example.timsCrawler.controller;
 import com.example.timsCrawler.domain.Member;
 import com.example.timsCrawler.service.TimsCrawlerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-@RestController
+@Controller
 @RequestMapping
 @RequiredArgsConstructor
 public class TimsCrawlerController {
