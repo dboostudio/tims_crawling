@@ -1,6 +1,7 @@
 package com.example.timsCrawler.service;
 
 import com.example.timsCrawler.domain.Member;
+import jakarta.servlet.http.Cookie;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,12 +22,8 @@ public class TimsCrawlerService {
     final String timsLoginUrl = "https://otims.tmax.co.kr/checkUserInfo.tmv?tmaxsso_nsso=no";
     Map<String, String> loginData = new HashMap<>();
     String userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36";
-    Map<String, String> loginCookie;
+    //    Map<String, String> loginCookie;
     Document attendanceYearDocument, attendanceWeekDocument;
-
-    public Map<String, String> getLoginCookie() {
-        return loginCookie;
-    }
 
     public void tryLogin(Member member) throws IOException {
         loginData.put("userId", member.getUsername());
@@ -43,10 +40,17 @@ public class TimsCrawlerService {
 //                .header("Host","sso.tmax.co.kr")
                 .execute();
 
-        loginCookie = loginPageResponse.cookies();
+        member.nullifyLoginData();
+        member.setLoginCookie(loginPageResponse.cookies());
+        System.out.println("cookie = " + loginPageResponse.cookies());
     }
 
-    public void getYearAttendanceList() throws IOException {
+    public void getYearAttendanceList(Cookie[] cookies) throws IOException {
+        Map<String, String> loginCookie = new HashMap<>();
+        for (Cookie cookie : cookies) {
+            loginCookie.put(cookie.getName(), cookie.getValue());
+        }
+
         SimpleDateFormat timsDateFormat = new SimpleDateFormat("yyyy.MM.dd");
         Date today = new Date();
         String dateToday = timsDateFormat.format(today);
@@ -55,6 +59,7 @@ public class TimsCrawlerService {
 
         Map<String,String> attendanceForm = new HashMap<>();
         attendanceForm.put("retStDate",dateToday.substring(0,3)+".01.01");
+        System.out.println("dateToday = " + dateToday);
         attendanceForm.put("retEdDate",dateToday);
 
         Connection.Response attendanceResponse = Jsoup.connect(attendanceUrl)
@@ -68,6 +73,7 @@ public class TimsCrawlerService {
                 .execute();
 
         attendanceYearDocument= attendanceResponse.parse();
+        getLateTime();
     }
 
     public void getWeekAttendanceList() throws IOException {
@@ -84,7 +90,7 @@ public class TimsCrawlerService {
 
         Connection.Response attendanceResponse = Jsoup.connect(attendanceUrl)
                 .method(Connection.Method.POST)
-                .cookies(loginCookie)
+//                .cookies(loginCookie)
                 .userAgent(userAgent)
                 .data(attendanceForm)
                 .header("Content-Type","application/x-www-form-urlencoded")

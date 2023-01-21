@@ -11,14 +11,6 @@ public class TimsCrawlerApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(TimsCrawlerApplication.class, args);
-		TimsCrawlerService timsCrawlerService = new TimsCrawlerService();
-
-//		timsCrawlerService.tryLogin();
-		timsCrawlerService.getYearAttendanceList();
-		timsCrawlerService.getLateTime();
-		timsCrawlerService.getWeekAttendanceList();
-		timsCrawlerService.getWorkTime();
-
 	}
 
 }
