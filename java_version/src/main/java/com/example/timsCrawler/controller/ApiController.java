@@ -29,4 +29,10 @@ public class ApiController {
         Cookie[] cookies = request.getCookies();
         timsCrawlerService.getYearAttendanceList(cookies);
     }
+
+    @GetMapping(path="/work-time")
+    public void getWorkTime(HttpServletRequest request) throws IOException{
+        Cookie[] cookies = request.getCookies();
+        timsCrawlerService.getWeekAttendanceList(cookies);
+    }
 }
