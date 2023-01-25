@@ -1,11 +1,13 @@
 package com.example.timsCrawler.controller;
 
 import com.example.timsCrawler.domain.Member;
+import com.example.timsCrawler.domain.dto.WorkTimeResponseDto;
 import com.example.timsCrawler.service.TimsCrawlerService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -31,8 +33,8 @@ public class ApiController {
     }
 
     @GetMapping(path="/work-time")
-    public void getWorkTime(HttpServletRequest request) throws IOException{
+    public ResponseEntity<WorkTimeResponseDto> getWorkTime(HttpServletRequest request) throws IOException{
         Cookie[] cookies = request.getCookies();
-        timsCrawlerService.getWeekAttendanceList(cookies);
+        return ResponseEntity.ok(timsCrawlerService.getWeekAttendanceList(cookies));
     }
 }

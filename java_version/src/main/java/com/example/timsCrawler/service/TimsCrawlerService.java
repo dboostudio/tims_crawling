@@ -1,6 +1,7 @@
 package com.example.timsCrawler.service;
 
 import com.example.timsCrawler.domain.Member;
+import com.example.timsCrawler.domain.dto.WorkTimeResponseDto;
 import jakarta.servlet.http.Cookie;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -70,7 +71,7 @@ public class TimsCrawlerService {
         getLateTime(attendanceYearDocument);
     }
 
-    public void getWeekAttendanceList(Cookie[] cookies) throws IOException {
+    public WorkTimeResponseDto getWeekAttendanceList(Cookie[] cookies) throws IOException {
         Map<String, String> loginCookie = new HashMap<>();
         for (Cookie cookie : cookies) {
             loginCookie.put(cookie.getName(), cookie.getValue());
@@ -98,7 +99,14 @@ public class TimsCrawlerService {
                 .execute();
 
         Document attendanceWeekDocument = attendanceResponse.parse();
-        getWorkTimeForWeek(attendanceWeekDocument);
+        return setWorkTimeResponseDto(getWorkTimeForWeek(attendanceWeekDocument));
+    }
+    public WorkTimeResponseDto setWorkTimeResponseDto(int workTime){
+        return WorkTimeResponseDto.builder()
+                .totalMin(workTime)
+                .min(workTime%60)
+                .hour(workTime/60)
+                .build();
     }
 
     public void getLateTime(Document attendanceYearDocument) {
@@ -120,7 +128,7 @@ public class TimsCrawlerService {
         System.out.println("지각 몇 분 ?: "+ totalLateTime + "분");
     }
 
-    public void getWorkTimeForWeek(Document attendanceWeekDocument) {
+    public int getWorkTimeForWeek(Document attendanceWeekDocument) {
         int workTime = 0;
 
         //정상 근무시간 합
@@ -145,6 +153,7 @@ public class TimsCrawlerService {
         }
 
         System.out.println("workTime = " + workTime);
+        return workTime;
     }
 
     private static int getWorkTimeToday(Elements elements, int defaultInitHour, int defaultExitHour) {
