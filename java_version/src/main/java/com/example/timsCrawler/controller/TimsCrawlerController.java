@@ -11,4 +11,10 @@ public class TimsCrawlerController {
     public String mainPage(){
         return "crawler_user_info";
     }
+
+    @GetMapping("/tims-crawler/dashboard")
+    public String dashboardPage(){
+        return "crawler_dashboard";
+    }
+
 }
