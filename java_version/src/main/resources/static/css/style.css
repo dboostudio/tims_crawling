@@ -109,7 +109,7 @@ body{
 	color: #4e4e4e;
 	align-items: center;
 	justify-content: flex-start;
-	border-bottom: solid 1px var(--border-gray-color);
+	border-bottom: solid 1px var(--border-grayucolor);
 }
 .login-stay-sign-in i{
 	font-size: 25px;
