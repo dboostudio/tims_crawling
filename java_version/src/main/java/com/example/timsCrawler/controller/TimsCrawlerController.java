@@ -14,8 +14,9 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class TimsCrawlerController {
     private final TimsCrawlerService timsCrawlerService;
+
     @GetMapping("/tims-crawler/main")
-    public String mainPage(){
+    public String mainPage() {
         return "crawler_user_info";
     }
 
@@ -33,5 +34,4 @@ public class TimsCrawlerController {
         model.addAttribute("response", testResponse);
         return "crawler_dashboard";
     }
-
 }

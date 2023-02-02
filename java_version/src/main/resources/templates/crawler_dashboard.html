@@ -18,10 +18,20 @@
                 <img th:src="@{/images/title.png}">
             </div>
         </header>
-        <h1 class= "progress-title" th:text="${response.name}"></h1>
-        <h1 class= "progress-title">님 이번주 근무시간은?</h1>
-        <h1 class= "progress-title" th:text="${response.hour}">시간</h1>
-        <h1 class= "progress-title" th:text="${response.min}">분</h1>
+        <table style="margin:100px 100px 10px 0px;">
+            <tr>
+                <td><h2 class= "worker-info" th:text="${response.name}"></h2></td>
+                <td><h2 class= "worker-info">님 이번주 근무시간은?</h2></td>
+            </tr>
+        </table>
+        <table style="margin:0px 0px 250px 0px; auto;">
+            <tr>
+                <td><h1 class= "work-time" th:text="${response.hour}"/></td>
+                <td><h1 class= "work-time">시간&nbsp</h1></td>
+                <td><h1 class= "work-time" th:text="${response.min}"/></td>
+                <td><h1 class= "work-time">분 </h1></td>
+            </tr>
+        </table>
         <div class="progress">
             <div class="progress-bar:before"></div>
             <div class="progress-bar" style="width: 40%;  background-color:mediumpurple;"></div>
@@ -36,8 +46,10 @@
         <div class="military-late">
             <table style="margin:0 auto;">
                 <tr>
-                    <td><h1 class="military-late-hour">0시간</h1></td>
-                    <td><h1 class="military-late-minute">0분</h1></td>
+                    <td><h1 class= "military-late-time" th:text="${response.hour}"/></td>
+                    <td><h1 class= "military-late-time">시간&nbsp</h1></td>
+                    <td><h1 class= "military-late-time" th:text="${response.min}"/></td>
+                    <td><h1 class= "military-late-time">분 </h1></td>
                 </tr>
             </table>
         </div>
