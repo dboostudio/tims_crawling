@@ -54,7 +54,7 @@ public class TimsCrawlerService {
         String attendanceUrl = "https://otims.tmax.co.kr/insa/attend/findAttdDailyConfirm.screen";
 
         Map<String,String> attendanceForm = new HashMap<>();
-        attendanceForm.put("retStDate",dateToday.substring(0,3)+".01.01");
+        attendanceForm.put("retStDate",dateToday.substring(0,4)+".01.01");
         attendanceForm.put("retEdDate",dateToday);
 
         Connection.Response attendanceResponse = Jsoup.connect(attendanceUrl)
