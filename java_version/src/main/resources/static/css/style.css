@@ -6,7 +6,6 @@
 	--tmax-blue-border-color: indigo;
 }
 
-
 *{
 	margin:0;
 	padding:0;
@@ -25,7 +24,6 @@ body{
 }
 .main-container .main-wrap{
 	width:768px;
-
 }
 .main-container .main-wrap .sel-lang-wrap .lang-select
 {
@@ -79,7 +77,6 @@ body{
     justify-content: center;
 }
 .family-wrap{
-
 	margin-top: 13px;
 }
 .login-input-wrap input{
@@ -109,7 +106,7 @@ body{
 	color: #4e4e4e;
 	align-items: center;
 	justify-content: flex-start;
-	border-bottom: solid 1px var(--border-gray-color);
+	border-bottom: solid 1px var(--border-grayucolor);
 }
 .login-stay-sign-in i{
 	font-size: 25px;
@@ -153,10 +150,15 @@ footer .copyright-wrap span{
 body{
 	margin: 50px 0 !important;
 }
-.progress-title{
-    padding:50px 0px 200px 0px;
-	color:#011627;
-	font-weight: 700;
+.worker-title{
+    padding:0px 0px 0px 30px;
+    color:#011627;
+    font-weight: 700;
+}
+.work-time{
+    padding:0px 0px 0px 30px;
+    color:#011627;
+    font-weight: 700;
 }
 .progress{
     margin:50px 0px 50px 0px;
@@ -221,12 +223,6 @@ body{
     padding:10px 0px 10px 0px;
 	color:#011627;
 	font-weight: 700;
-}
-.military-late-hour{
-    margin-right:15px;
-}
-.military-late-minute{
-    
 }
 .military-late{
     margin:0 auto;

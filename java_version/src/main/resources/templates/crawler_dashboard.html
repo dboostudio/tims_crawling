@@ -1,49 +1,63 @@
 <!doctype HTML>
-<head>
-	<meta charset="UTF-8">
-	<title>근태 크롤러</title>
-	<link rel="stylesheet" href="../css/style.css">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
-	
+<head xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>근태 크롤러</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-	<div class="main-container">
-		<div class="main-wrap">
-		<header>
-			<div class="logo-wrap">
-				<img src="img.png">
-			</div>
-		</header>
-		<h1 class="progress-title">최윤혜님 이번주 n시간 n분 근무하셨습니다.</h1>
-		<div class="progress">
-			<div class="progress-bar:before"></div>
-			<div class="progress-bar" style="width: 40%;  background-color:mediumpurple;">
-			</div>
-		</div>
-		<table style="margin:100px 100px 30px 0px;">
-			<tr>
-				<td><img width="100px" height="100px" src="hogook.jpg"></td>
-				<td ><h1 class="military-title">전문연구요원 기능</h1></td>
-			</tr>
-		</table>
-		
-		
-		<h2 class="military-sub-title">올해 누적 지각 시간</h2>
-		<div class="military-late">
-			<table style="margin:0 auto;">
-				<tr>
-					<td><h1 class="military-late-hour">0시간</h1></td>
-					<td><h1 class="military-late-minute">0분</h1></td>
-				</tr>
-			</table>
-		</div>
-		<footer>
-			<div class="copyright-wrap">
-			<span>	Copyright © dboo-cherry-null</span>
-			</div>
-		</footer>
-		</div>
-	</div>
+<div class="main-container">
+    <div class="main-wrap">
+        <header>
+            <div class="logo-wrap">
+                <img th:src="@{/images/title.png}">
+            </div>
+        </header>
+        <table style="margin:100px 100px 10px 0px;">
+            <tr>
+                <td><h2 class= "worker-info" th:text="${response.name}"></h2></td>
+                <td><h2 class= "worker-info">님 이번주 근무시간은?</h2></td>
+            </tr>
+        </table>
+        <table style="margin:0px 0px 250px 0px; auto;">
+            <tr>
+                <td><h1 class= "work-time" th:text="${response.hour}"/></td>
+                <td><h1 class= "work-time">시간&nbsp</h1></td>
+                <td><h1 class= "work-time" th:text="${response.min}"/></td>
+                <td><h1 class= "work-time">분 </h1></td>
+            </tr>
+        </table>
+        <div class="progress">
+            <div class="progress-bar:before"></div>
+            <div class="progress-bar" style="width: 40%;  background-color:mediumpurple;"></div>
+        </div>
+        <table style="margin:100px 100px 30px 0px;">
+            <tr>
+                <td><img width="100px" height="100px" th:src="@{/images/hogook.jpg}"></td>
+                <td><h1 class="military-title">전문연구요원 기능</h1></td>
+            </tr>
+        </table>
+        <h2 class="military-sub-title">올해 누적 지각 시간</h2>
+        <div class="military-late">
+            <table style="margin:0 auto;">
+                <tr>
+                    <td><h1 class= "military-late-time" th:text="${response.hour}"/></td>
+                    <td><h1 class= "military-late-time">시간&nbsp</h1></td>
+                    <td><h1 class= "military-late-time" th:text="${response.min}"/></td>
+                    <td><h1 class= "military-late-time">분 </h1></td>
+                </tr>
+            </table>
+        </div>
+        <footer>
+            <div class="copyright-wrap">
+                <span>	Copyright © dboo-cherry-null</span>
+            </div>
+        </footer>
+    </div>
+</div>
 </body>

@@ -1,9 +1,6 @@
 package com.example.timsCrawler.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @Builder
@@ -11,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WorkTimeResponseDto {
     String name;
-    int hour;
+    Integer hour;
     int min;
     int totalMin;
 }
